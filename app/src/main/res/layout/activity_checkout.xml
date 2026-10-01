@@ -1,0 +1,12 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#FFFFFF">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Checkout" android:textColor="#1B5E20" android:textSize="24sp" android:textStyle="bold"/>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:background="#FFF3E0" android:padding="10dp" android:text="PROTOTYPE ONLY: this is a school project. No real payment is processed." android:textColor="#E65100"/>
+        <EditText android:id="@+id/edtName" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:hint="Customer name" android:inputType="textPersonName"/>
+        <EditText android:id="@+id/edtPhone" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Telephone number" android:inputType="phone"/>
+        <EditText android:id="@+id/edtLocation" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Delivery location (e.g. Eriku, Lae)" android:inputType="textPostalAddress"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Order Summary" android:textSize="18sp" android:textStyle="bold"/>
+        <TextView android:id="@+id/txtSummary" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:textSize="16sp"/>
+        <Button android:id="@+id/btnPlaceOrder" android:layout_width="match_parent" android:layout_height="56dp" android:layout_marginTop="20dp" android:backgroundTint="#F57C00" android:text="Place Order"/>
+    </LinearLayout>
+</ScrollView>
