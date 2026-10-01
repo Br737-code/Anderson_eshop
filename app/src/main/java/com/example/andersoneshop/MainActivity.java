@@ -1,5 +1,6 @@
 package com.example.andersoneshop;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -20,5 +21,18 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // View Products -> product list showing everything
+        findViewById(R.id.btnProducts).setOnClickListener(v -> {
+            Intent intent = new Intent(this, ProductActivity.class);
+            intent.putExtra("category", "All");
+            startActivity(intent);
+        });
+
+        findViewById(R.id.btnCategories).setOnClickListener(v ->
+                startActivity(new Intent(this, CategoryActivity.class)));
+
+        findViewById(R.id.btnCart).setOnClickListener(v ->
+                startActivity(new Intent(this, CartActivity.class)));
     }
 }
