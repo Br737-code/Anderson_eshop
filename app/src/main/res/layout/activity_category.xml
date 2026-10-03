@@ -1,7 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#F1F8E9" android:orientation="vertical" android:padding="24dp">
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="20dp" android:text="Shop by Category" android:textColor="#1B5E20" android:textSize="24sp" android:textStyle="bold"/>
     <Button android:id="@+id/btnDrinks" android:layout_width="match_parent" android:layout_height="64dp" android:backgroundTint="#2E7D32" android:text="Drinks"/>
-    <Button android:id="@+id/btnFruit" android:layout_width="match_parent" android:layout_height="64dp" android:layout_marginTop="12dp" android:backgroundTint="#2E7D32" android:text="Fruit & Vegetables"/>
+    <Button android:id="@+id/btnFruit" android:layout_width="match_parent" android:layout_height="64dp" android:layout_marginTop="12dp" android:backgroundTint="#2E7D32" android:text="Fruit &amp; Vegetables"/>
     <Button android:id="@+id/btnBakery" android:layout_width="match_parent" android:layout_height="64dp" android:layout_marginTop="12dp" android:backgroundTint="#2E7D32" android:text="Bakery"/>
     <Button android:id="@+id/btnButchery" android:layout_width="match_parent" android:layout_height="64dp" android:layout_marginTop="12dp" android:backgroundTint="#2E7D32" android:text="Butchery"/>
     <Button android:id="@+id/btnViewCart" android:layout_width="match_parent" android:layout_height="56dp" android:layout_marginTop="24dp" android:backgroundTint="#F57C00" android:text="View Cart"/>

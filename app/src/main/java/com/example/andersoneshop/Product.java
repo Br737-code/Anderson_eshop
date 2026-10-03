@@ -3,23 +3,28 @@ package com.example.andersoneshop;
 /** Parent class for every item sold at Anderson's Shop. */
 public class Product {
 
-    // protected: children can use these directly; outside classes use getters (encapsulation)
     protected int id;
     protected String productName;
+    protected String description; // Added for more detail
     protected double price;
     protected String category;
+    protected int imageResId;
 
-    public Product(int id, String productName, double price, String category) {
+    public Product(int id, String productName, String description, double price, String category, int imageResId) {
         this.id = id;
         this.productName = productName;
+        this.description = description;
         this.price = price;
         this.category = category;
+        this.imageResId = imageResId;
     }
 
     public int getId() { return id; }
     public String getProductName() { return productName; }
+    public String getDescription() { return description; }
     public double getPrice() { return price; }
     public String getCategory() { return category; }
+    public int getImageResId() { return imageResId; }
 
     /** Unit the product is sold in. Children override this. */
     public String getUnitLabel() { return "each"; }

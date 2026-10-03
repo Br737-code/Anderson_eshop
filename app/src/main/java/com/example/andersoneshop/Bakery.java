@@ -4,8 +4,8 @@ public class Bakery extends Product {
     private static final int BULK_QUANTITY = 12;
     private static final double BULK_DISCOUNT = 0.10; // 10% off when buying 12 or more
 
-    public Bakery(int id, String productName, double price) {
-        super(id, productName, price, "Bakery");
+    public Bakery(int id, String productName, String description, double price, int imageResId) {
+        super(id, productName, description, price, "Bakery", imageResId);
     }
 
     @Override

@@ -3,8 +3,8 @@ public class Drink extends Product {
 
     private int sizeMl;
 
-    public Drink(int id, String productName, double price, int sizeMl) {
-        super(id, productName, price, "Drinks");
+    public Drink(int id, String productName, String description, double price, int sizeMl, int imageResId) {
+        super(id, productName, description, price, "Drinks", imageResId);
         this.sizeMl = sizeMl;
     }
 

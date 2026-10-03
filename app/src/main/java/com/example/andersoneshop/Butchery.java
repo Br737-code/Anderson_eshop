@@ -1,10 +1,11 @@
 package com.example.andersoneshop;
+
 public class Butchery extends Product {
 
     private double packWeightKg;
 
-    public Butchery(int id, String productName, double price, double packWeightKg) {
-        super(id, productName, price, "Butchery");
+    public Butchery(int id, String productName, String description, double price, double packWeightKg, int imageResId) {
+        super(id, productName, description, price, "Butchery", imageResId);
         this.packWeightKg = packWeightKg;
     }
 
