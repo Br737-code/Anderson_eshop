@@ -9,65 +9,68 @@
     android:orientation="vertical"
     android:padding="24dp">
 
-    <!-- Anderson's Foodland Official Logo Container -->
-    <androidx.cardview.widget.CardView
-        android:layout_width="260dp"
-        android:layout_height="260dp"
-        app:cardCornerRadius="130dp"
-        app:cardElevation="8dp"
-        app:cardBackgroundColor="#FFFFFF">
-
-        <ImageView
-            android:id="@+id/imgLogo"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="Anderson Foodland Official Logo"
-            android:padding="32dp"
-            android:scaleType="fitCenter"
-            android:src="@mipmap/ic_launcher_foreground" />
-    </androidx.cardview.widget.CardView>
+    <!-- Anderson's Foodland Official Logo - Professional presentation without background container -->
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:contentDescription="Anderson Foodland Official Logo"
+        android:padding="16dp"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/ic_launcher_foreground" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:text="ANDERSON\'S FOODLAND"
         android:textColor="#EE1C25"
         android:textSize="28sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:letterSpacing="0.05" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Freshness you can taste • Value you can trust"
-        android:textColor="#555555"
-        android:textSize="14sp"
+        android:textColor="#5C6059"
+        android:textSize="15sp"
         android:textStyle="italic" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnProducts"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="40dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="48dp"
         android:backgroundTint="#2E7D32"
         android:text="View Products"
-        android:textSize="16sp" />
+        android:textAllCaps="false"
+        android:textSize="17sp"
+        app:cornerRadius="16dp"
+        app:elevation="2dp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnCategories"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="12dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="#2E7D32"
         android:text="Categories"
-        android:textSize="16sp" />
+        android:textAllCaps="false"
+        android:textSize="17sp"
+        app:cornerRadius="16dp"
+        app:elevation="2dp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnCart"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="12dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="#F57C00"
         android:text="Shopping Cart"
-        android:textSize="16sp" />
+        android:textAllCaps="false"
+        android:textSize="17sp"
+        app:cornerRadius="16dp"
+        app:elevation="2dp" />
 </LinearLayout>
