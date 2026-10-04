@@ -35,7 +35,7 @@ public class ProductActivity extends AppCompatActivity {
     private String currentSearch = "";
     private Double minPrice = null, maxPrice = null;
     
-    private MaterialButton chipAll, chipProduce, chipBakery, chipDairy, chipDrinks;
+    private MaterialButton chipAll, chipProduce, chipBakery, chipButchery, chipDairy, chipDrinks;
     private EditText edtSearch, edtMinPrice, edtMaxPrice;
     private LinearLayout layoutPriceFilter;
 
@@ -58,6 +58,7 @@ public class ProductActivity extends AppCompatActivity {
         chipAll = findViewById(R.id.chipAll);
         chipProduce = findViewById(R.id.chipProduce);
         chipBakery = findViewById(R.id.chipBakery);
+        chipButchery = findViewById(R.id.chipButchery);
         chipDairy = findViewById(R.id.chipDairy);
         chipDrinks = findViewById(R.id.chipDrinks);
         
@@ -116,6 +117,7 @@ public class ProductActivity extends AppCompatActivity {
         chipAll.setOnClickListener(v -> filterByCategory("All"));
         chipProduce.setOnClickListener(v -> filterByCategory("Produce"));
         chipBakery.setOnClickListener(v -> filterByCategory("Bakery"));
+        chipButchery.setOnClickListener(v -> filterByCategory("Butchery"));
         chipDairy.setOnClickListener(v -> filterByCategory("Dairy"));
         chipDrinks.setOnClickListener(v -> filterByCategory("Drinks"));
     }
@@ -130,6 +132,7 @@ public class ProductActivity extends AppCompatActivity {
         setChipSelected(chipAll, currentCategory.equals("All"));
         setChipSelected(chipProduce, currentCategory.equals("Produce"));
         setChipSelected(chipBakery, currentCategory.equals("Bakery"));
+        setChipSelected(chipButchery, currentCategory.equals("Butchery"));
         setChipSelected(chipDairy, currentCategory.equals("Dairy"));
         setChipSelected(chipDrinks, currentCategory.equals("Drinks"));
     }

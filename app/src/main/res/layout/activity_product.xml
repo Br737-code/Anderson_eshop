@@ -168,6 +168,18 @@
                 app:strokeColor="#E1E3DA" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/chipButchery"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Butchery"
+                android:textAllCaps="false"
+                android:textColor="?android:attr/textColorSecondary"
+                app:cornerRadius="20dp"
+                app:strokeColor="#E1E3DA" />
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/chipDairy"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
