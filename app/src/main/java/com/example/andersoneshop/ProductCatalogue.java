@@ -37,7 +37,7 @@ public class ProductCatalogue {
         products.add(new Drink(11, "Coca-Cola", "Refreshing soda", 4.50, 600, R.drawable.cola));
         products.add(new Drink(12, "Orange Juice", "100% Pure", 7.00, 1000, R.drawable.orange));
         products.add(new Drink(17, "TruTru Wara", "Pure PNG water", 2.50, 1500, R.drawable.water));
-        products.add(new Drink(11, "Sprite", "Refreshing soda", 4.50, 600, R.drawable.sprite));
+        products.add(new Drink(18, "Sprite", "Refreshing soda", 4.50, 600, R.drawable.sprite));
 
     }
 
