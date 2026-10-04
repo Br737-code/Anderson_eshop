@@ -24,7 +24,7 @@
             android:contentDescription="Anderson Foodland Official Logo"
             android:padding="32dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_launcher_foreground" />
+            android:src="@mipmap/ic_launcher_foreground" />
     </androidx.cardview.widget.CardView>
 
     <TextView

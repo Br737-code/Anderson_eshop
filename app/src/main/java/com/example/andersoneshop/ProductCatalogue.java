@@ -21,7 +21,7 @@ public class ProductCatalogue {
         // Bakery
         products.add(new Bakery(4, "Sourdough Country Loaf", "Baked this morning • 24 oz", 6.50, R.drawable.sourdough));
         products.add(new Bakery(5, "White Bread Loaf", "Soft and fresh", 5.00, R.drawable.bread));
-        products.add(new Bakery(6, "Dinner Rolls", "12 pack", 1.00, R.drawable.dinner_rolls));
+        products.add(new Bakery(6, "Dinner Rolls", "12 pack", 1.00, R.drawable.rolls));
         products.add(new Bakery(15, "Meat Pie", "Warm and flaky", 6.50, R.drawable.pie));
         
         // Dairy
@@ -29,13 +29,13 @@ public class ProductCatalogue {
         products.add(new Product(8, "Organic Whole Milk", "1 Gallon", 5.50, "Dairy",  R.drawable.milk));
 
         // Butchery
-        products.add(new Butchery(9, "Chicken Pieces", "Fresh organic chicken", 22.00, 1.0, R.drawable.chicken_pieces));
-        products.add(new Butchery(10, "Beef Mince", "90% Lean", 28.00, 1.0, R.drawable.beef_mince));
-        products.add(new Butchery(16, "Lamb Flaps", "Tender local cut", 18.00, 1.0, R.drawable.lamb_flaps));
+        products.add(new Butchery(9, "Chicken Pieces", "Fresh organic chicken", 22.00, 1.0, R.drawable.chicken));
+        products.add(new Butchery(10, "Beef Mince", "90% Lean", 28.00, 1.0, R.drawable.beef));
+        products.add(new Butchery(16, "Lamb Flaps", "Tender local cut", 18.00, 1.0, R.drawable.lamb));
         
         // Drinks
         products.add(new Drink(11, "Coca-Cola", "Refreshing soda", 4.50, 600, R.drawable.cola));
-        products.add(new Drink(12, "Orange Juice", "100% Pure", 7.00, 1000, R.drawable.orange_juice));
+        products.add(new Drink(12, "Orange Juice", "100% Pure", 7.00, 1000, R.drawable.orange));
         products.add(new Drink(17, "TruTru Wara", "Pure PNG water", 2.50, 1500, R.drawable.water));
     }
 
