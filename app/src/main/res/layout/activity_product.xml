@@ -60,19 +60,19 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/chipAll"
                 style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:backgroundTint="#356947"
                 android:text="All"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                app:cornerRadius="20dp" />
+                app:cornerRadius="20dp"
+                app:backgroundTint="#356947" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/chipProduce"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
@@ -84,7 +84,7 @@
                 app:cornerRadius="20dp"
                 app:strokeColor="#E1E3DA" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/chipBakery"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
@@ -96,12 +96,24 @@
                 app:cornerRadius="20dp"
                 app:strokeColor="#E1E3DA" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/chipDairy"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
                 android:text="Dairy"
+                android:textAllCaps="false"
+                android:textColor="#5C6059"
+                app:cornerRadius="20dp"
+                app:strokeColor="#E1E3DA" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/chipDrinks"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Drinks"
                 android:textAllCaps="false"
                 android:textColor="#5C6059"
                 app:cornerRadius="20dp"
@@ -156,7 +168,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txtItemsCount" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnGoToCart"
                 android:layout_width="0dp"
                 android:layout_height="56dp"

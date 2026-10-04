@@ -2,6 +2,8 @@ package com.example.andersoneshop;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +18,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
+import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -25,6 +30,8 @@ public class ProductActivity extends AppCompatActivity {
     private ProductAdapter adapter;
     private TextView txtItemsCount, txtCartTotal;
     private String currentCategory = "All";
+    
+    private MaterialButton chipAll, chipProduce, chipBakery, chipDairy, chipDrinks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +40,21 @@ public class ProductActivity extends AppCompatActivity {
 
         String categoryIntent = getIntent().getStringExtra("category");
         if (categoryIntent != null) currentCategory = categoryIntent;
+        // Map "Fruit & Vegetables" to "Produce" for the chip highlight if coming from CategoryActivity
+        if (currentCategory.equals("Fruit & Vegetables")) currentCategory = "Produce";
 
         txtItemsCount = findViewById(R.id.txtItemsCount);
         txtCartTotal = findViewById(R.id.txtCartTotal);
         
+        chipAll = findViewById(R.id.chipAll);
+        chipProduce = findViewById(R.id.chipProduce);
+        chipBakery = findViewById(R.id.chipBakery);
+        chipDairy = findViewById(R.id.chipDairy);
+        chipDrinks = findViewById(R.id.chipDrinks);
+        
         setupCategoryChips();
         updateProductList();
+        updateChipStyles();
 
         findViewById(R.id.btnGoToCart).setOnClickListener(v ->
                 startActivity(new Intent(this, CartActivity.class)));
@@ -47,15 +63,38 @@ public class ProductActivity extends AppCompatActivity {
     }
 
     private void setupCategoryChips() {
-        findViewById(R.id.chipAll).setOnClickListener(v -> filterByCategory("All"));
-        findViewById(R.id.chipProduce).setOnClickListener(v -> filterByCategory("Produce"));
-        findViewById(R.id.chipBakery).setOnClickListener(v -> filterByCategory("Bakery"));
-        findViewById(R.id.chipDairy).setOnClickListener(v -> filterByCategory("Dairy"));
+        chipAll.setOnClickListener(v -> filterByCategory("All"));
+        chipProduce.setOnClickListener(v -> filterByCategory("Produce"));
+        chipBakery.setOnClickListener(v -> filterByCategory("Bakery"));
+        chipDairy.setOnClickListener(v -> filterByCategory("Dairy"));
+        chipDrinks.setOnClickListener(v -> filterByCategory("Drinks"));
     }
 
     private void filterByCategory(String category) {
         currentCategory = category;
         updateProductList();
+        updateChipStyles();
+    }
+
+    private void updateChipStyles() {
+        setChipSelected(chipAll, currentCategory.equals("All"));
+        setChipSelected(chipProduce, currentCategory.equals("Produce"));
+        setChipSelected(chipBakery, currentCategory.equals("Bakery"));
+        setChipSelected(chipDairy, currentCategory.equals("Dairy"));
+        setChipSelected(chipDrinks, currentCategory.equals("Drinks"));
+    }
+
+    private void setChipSelected(MaterialButton chip, boolean isSelected) {
+        if (isSelected) {
+            chip.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#356947")));
+            chip.setTextColor(Color.WHITE);
+            chip.setStrokeWidth(0);
+        } else {
+            chip.setBackgroundTintList(ColorStateList.valueOf(Color.TRANSPARENT));
+            chip.setTextColor(Color.parseColor("#5C6059"));
+            chip.setStrokeColor(ColorStateList.valueOf(Color.parseColor("#E1E3DA")));
+            chip.setStrokeWidth(1);
+        }
     }
 
     private void updateProductList() {
