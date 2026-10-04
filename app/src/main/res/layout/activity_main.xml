@@ -9,15 +9,26 @@
     android:orientation="vertical"
     android:padding="24dp">
 
-    <!-- Anderson's Foodland Official Logo -->
-    <ImageView
-        android:id="@+id/imgLogo"
+    <!-- Anderson's Foodland Official Logo Wrapped in a Circle -->
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="240dp"
         android:layout_height="240dp"
-        android:contentDescription="Anderson Foodland Official Logo"
-        android:padding="16dp"
-        android:scaleType="fitCenter"
-        android:src="@mipmap/ic_launcher_foreground" />
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="120dp"
+        app:cardElevation="4dp"
+        app:strokeColor="#EE1C25"
+        app:strokeWidth="6dp">
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="Anderson Foodland Official Logo"
+            android:padding="32dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/app_logo_foreground" />
+
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
         android:layout_width="wrap_content"
