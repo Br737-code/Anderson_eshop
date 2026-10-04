@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F9F8F3">
+    android:background="?android:attr/windowBackground">
 
     <TextView
         android:id="@+id/textViewTitle"
@@ -13,7 +13,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="24dp"
         android:text="Products"
-        android:textColor="#1A1C19"
+        android:textColor="?android:attr/textColorPrimary"
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:text="Fresh essentials, thoughtfully sourced"
-        android:textColor="#5C6059"
+        android:textColor="?android:attr/textColorSecondary"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textViewTitle" />
@@ -42,7 +42,8 @@
         app:layout_constraintBottom_toBottomOf="@id/textViewSubtitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/textViewTitle"
-        android:contentDescription="Filter products" />
+        android:contentDescription="Filter products"
+        app:tint="#1A1C19" />
 
     <HorizontalScrollView
         android:id="@+id/categoryScroll"
@@ -80,7 +81,7 @@
                 android:layout_marginEnd="8dp"
                 android:text="Produce"
                 android:textAllCaps="false"
-                android:textColor="#5C6059"
+                android:textColor="?android:attr/textColorSecondary"
                 app:cornerRadius="20dp"
                 app:strokeColor="#E1E3DA" />
 
@@ -92,7 +93,7 @@
                 android:layout_marginEnd="8dp"
                 android:text="Bakery"
                 android:textAllCaps="false"
-                android:textColor="#5C6059"
+                android:textColor="?android:attr/textColorSecondary"
                 app:cornerRadius="20dp"
                 app:strokeColor="#E1E3DA" />
 
@@ -104,7 +105,7 @@
                 android:layout_marginEnd="8dp"
                 android:text="Dairy"
                 android:textAllCaps="false"
-                android:textColor="#5C6059"
+                android:textColor="?android:attr/textColorSecondary"
                 app:cornerRadius="20dp"
                 app:strokeColor="#E1E3DA" />
 
@@ -115,7 +116,7 @@
                 android:layout_height="wrap_content"
                 android:text="Drinks"
                 android:textAllCaps="false"
-                android:textColor="#5C6059"
+                android:textColor="?android:attr/textColorSecondary"
                 app:cornerRadius="20dp"
                 app:strokeColor="#E1E3DA" />
         </LinearLayout>
@@ -139,12 +140,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardElevation="16dp"
+        app:cardBackgroundColor="?attr/colorSurface"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFFFFF"
             android:padding="20dp">
 
             <TextView
@@ -152,7 +153,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0 items"
-                android:textColor="#5C6059"
+                android:textColor="?android:attr/textColorSecondary"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -162,7 +163,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="K0.00"
-                android:textColor="#1A1C19"
+                android:textColor="?android:attr/textColorPrimary"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"

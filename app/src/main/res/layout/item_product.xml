@@ -7,7 +7,7 @@
     android:layout_marginHorizontal="12dp"
     app:cardCornerRadius="20dp"
     app:cardElevation="0dp"
-    app:cardBackgroundColor="#FFFFFF"
+    app:cardBackgroundColor="?attr/colorSurface"
     app:strokeWidth="1dp"
     app:strokeColor="#EEF0E6">
 
@@ -53,7 +53,7 @@
             android:ellipsize="end"
             android:maxLines="2"
             android:text="Product Name"
-            android:textColor="#1A1C19"
+            android:textColor="?android:attr/textColorPrimary"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -65,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Description • Unit"
-            android:textColor="#5C6059"
+            android:textColor="?android:attr/textColorSecondary"
             android:textSize="13sp"
             app:layout_constraintStart_toStartOf="@id/txtProductName"
             app:layout_constraintTop_toBottomOf="@id/txtProductName" />
@@ -76,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:text="K0.00"
-            android:textColor="#1A1C19"
+            android:textColor="?android:attr/textColorPrimary"
             android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/txtProductName"
@@ -87,12 +87,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="per unit"
-            android:textColor="#5C6059"
+            android:textColor="?android:attr/textColorSecondary"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@id/txtPrice"
             app:layout_constraintTop_toBottomOf="@id/txtPrice" />
 
-        <!-- Quantity Selector -->
+        <!-- Quantity Selector - Background is fixed light, so text must be fixed dark -->
         <LinearLayout
             android:id="@+id/layoutQuantity"
             android:layout_width="wrap_content"

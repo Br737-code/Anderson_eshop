@@ -7,12 +7,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Locale;
 
 public class CartActivity extends AppCompatActivity {
 
@@ -50,7 +53,7 @@ public class CartActivity extends AppCompatActivity {
     /** Rebuilds the list and total from the shared cart. */
     private void refresh() {
         listCart.setAdapter(new CartAdapter(this));
-        txtTotal.setText("Total: K" + String.format("%.2f", ShopData.cart.calculateTotal()));
+        txtTotal.setText(String.format(Locale.US, "Total: K%.2f", ShopData.cart.calculateTotal()));
         txtEmpty.setVisibility(ShopData.cart.isEmpty() ? View.VISIBLE : View.GONE);
     }
 
@@ -68,19 +71,25 @@ public class CartActivity extends AppCompatActivity {
                         .inflate(R.layout.item_cart, parent, false);
             }
             CartItem item = getItem(position);
+            if (item == null) return convertView;
+            
             Product product = item.getProduct();
 
-            ((TextView) convertView.findViewById(R.id.txtCartName)).setText(
-                    product.getProductName() + "\nK" + String.format("%.2f", product.getPrice())
-                            + " x " + item.getQuantity());
-            ((TextView) convertView.findViewById(R.id.txtCartSubtotal)).setText(
-                    "K" + String.format("%.2f", item.getSubtotal()));
+            TextView txtName = convertView.findViewById(R.id.txtCartName);
+            TextView txtSubtotal = convertView.findViewById(R.id.txtCartSubtotal);
+            TextView txtQty = convertView.findViewById(R.id.txtQuantity);
+            ImageButton btnPlus = convertView.findViewById(R.id.btnPlus);
+            ImageButton btnMinus = convertView.findViewById(R.id.btnMinus);
 
-            convertView.findViewById(R.id.btnPlus).setOnClickListener(v -> {
+            txtName.setText(product.getProductName());
+            txtSubtotal.setText(String.format(Locale.US, "K%.2f", item.getSubtotal()));
+            txtQty.setText(String.valueOf(item.getQuantity()));
+
+            btnPlus.setOnClickListener(v -> {
                 ShopData.cart.addProduct(product);
                 refresh();
             });
-            convertView.findViewById(R.id.btnMinus).setOnClickListener(v -> {
+            btnMinus.setOnClickListener(v -> {
                 ShopData.cart.removeProduct(product);
                 refresh();
             });

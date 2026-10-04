@@ -4,12 +4,12 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="?android:attr/windowBackground"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="24dp">
 
-    <!-- Anderson's Foodland Official Logo - Professional presentation without background container -->
+    <!-- Anderson's Foodland Official Logo -->
     <ImageView
         android:id="@+id/imgLogo"
         android:layout_width="240dp"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Freshness you can taste • Value you can trust"
-        android:textColor="#5C6059"
+        android:textColor="?android:attr/textColorSecondary"
         android:textSize="15sp"
         android:textStyle="italic" />
 
@@ -73,4 +73,21 @@
         android:textSize="17sp"
         app:cornerRadius="16dp"
         app:elevation="2dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="start|center_vertical"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cbDarkTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dark theme"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="14sp" />
+    </LinearLayout>
+
 </LinearLayout>
