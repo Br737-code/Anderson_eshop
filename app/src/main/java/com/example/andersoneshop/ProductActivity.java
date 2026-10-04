@@ -5,11 +5,14 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -18,7 +21,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import com.google.android.material.button.MaterialButton;
 
@@ -30,8 +32,12 @@ public class ProductActivity extends AppCompatActivity {
     private ProductAdapter adapter;
     private TextView txtItemsCount, txtCartTotal;
     private String currentCategory = "All";
+    private String currentSearch = "";
+    private Double minPrice = null, maxPrice = null;
     
     private MaterialButton chipAll, chipProduce, chipBakery, chipDairy, chipDrinks;
+    private EditText edtSearch, edtMinPrice, edtMaxPrice;
+    private LinearLayout layoutPriceFilter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +46,14 @@ public class ProductActivity extends AppCompatActivity {
 
         String categoryIntent = getIntent().getStringExtra("category");
         if (categoryIntent != null) currentCategory = categoryIntent;
-        // Map "Fruit & Vegetables" to "Produce" for the chip highlight if coming from CategoryActivity
         if (currentCategory.equals("Fruit & Vegetables")) currentCategory = "Produce";
 
         txtItemsCount = findViewById(R.id.txtItemsCount);
         txtCartTotal = findViewById(R.id.txtCartTotal);
+        edtSearch = findViewById(R.id.edtSearch);
+        edtMinPrice = findViewById(R.id.edtMinPrice);
+        edtMaxPrice = findViewById(R.id.edtMaxPrice);
+        layoutPriceFilter = findViewById(R.id.layoutPriceFilter);
         
         chipAll = findViewById(R.id.chipAll);
         chipProduce = findViewById(R.id.chipProduce);
@@ -53,6 +62,9 @@ public class ProductActivity extends AppCompatActivity {
         chipDrinks = findViewById(R.id.chipDrinks);
         
         setupCategoryChips();
+        setupSearch();
+        setupPriceFilter();
+        
         updateProductList();
         updateChipStyles();
 
@@ -60,6 +72,44 @@ public class ProductActivity extends AppCompatActivity {
                 startActivity(new Intent(this, CartActivity.class)));
 
         updateBottomBar();
+    }
+
+    private void setupSearch() {
+        edtSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                currentSearch = s.toString().toLowerCase().trim();
+                updateProductList();
+            }
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+    }
+
+    private void setupPriceFilter() {
+        findViewById(R.id.btnFilter).setOnClickListener(v -> {
+            if (layoutPriceFilter.getVisibility() == View.VISIBLE) {
+                layoutPriceFilter.setVisibility(View.GONE);
+            } else {
+                layoutPriceFilter.setVisibility(View.VISIBLE);
+            }
+        });
+
+        findViewById(R.id.btnApplyPrice).setOnClickListener(v -> {
+            String minStr = edtMinPrice.getText().toString();
+            String maxStr = edtMaxPrice.getText().toString();
+            
+            try {
+                minPrice = minStr.isEmpty() ? null : Double.parseDouble(minStr);
+                maxPrice = maxStr.isEmpty() ? null : Double.parseDouble(maxStr);
+            } catch (NumberFormatException e) {
+                minPrice = null;
+                maxPrice = null;
+            }
+            updateProductList();
+        });
     }
 
     private void setupCategoryChips() {
@@ -98,15 +148,31 @@ public class ProductActivity extends AppCompatActivity {
     }
 
     private void updateProductList() {
-        ArrayList<Product> products;
-        if (currentCategory.equals("All")) {
-            products = ProductCatalogue.getAllProducts();
-        } else {
-            products = ProductCatalogue.getByCategory(currentCategory);
+        ArrayList<Product> products = ProductCatalogue.getAllProducts();
+        ArrayList<Product> filtered = new ArrayList<>();
+
+        for (Product p : products) {
+            // Category Filter
+            boolean matchCategory = currentCategory.equals("All") || 
+                    p.getCategory().equalsIgnoreCase(currentCategory) ||
+                    (currentCategory.equals("Produce") && p.getCategory().contains("Fruit"));
+            
+            // Search Filter
+            boolean matchSearch = currentSearch.isEmpty() || 
+                    p.getProductName().toLowerCase().contains(currentSearch) ||
+                    p.getDescription().toLowerCase().contains(currentSearch);
+            
+            // Price Filter
+            boolean matchPrice = (minPrice == null || p.getPrice() >= minPrice) &&
+                                 (maxPrice == null || p.getPrice() <= maxPrice);
+
+            if (matchCategory && matchSearch && matchPrice) {
+                filtered.add(p);
+            }
         }
 
         ListView listView = findViewById(R.id.listProducts);
-        adapter = new ProductAdapter(this, products);
+        adapter = new ProductAdapter(this, filtered);
         listView.setAdapter(adapter);
     }
 
@@ -139,6 +205,7 @@ public class ProductActivity extends AppCompatActivity {
                         .inflate(R.layout.item_product, parent, false);
             }
             Product product = getItem(position);
+            if (product == null) return convertView;
 
             ImageView imgProduct = convertView.findViewById(R.id.imgProduct);
             TextView txtName = convertView.findViewById(R.id.txtProductName);
@@ -151,14 +218,12 @@ public class ProductActivity extends AppCompatActivity {
             ImageButton btnPlus = convertView.findViewById(R.id.btnPlus);
             ImageButton btnMinus = convertView.findViewById(R.id.btnMinus);
 
-            // Set Data
             imgProduct.setImageResource(product.getImageResId());
             txtName.setText(product.getProductName());
             txtPrice.setText(String.format(Locale.getDefault(), "K%.2f", product.getPrice()));
             txtPerUnit.setText("per " + product.getUnitLabel());
             txtDesc.setText(product.getDescription());
 
-            // Cart Logic for UI State
             CartItem cartItem = null;
             for (CartItem item : ShopData.cart.getItems()) {
                 if (item.getProduct().getId() == product.getId()) {
