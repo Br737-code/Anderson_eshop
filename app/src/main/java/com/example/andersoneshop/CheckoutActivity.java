@@ -40,7 +40,7 @@ public class CheckoutActivity extends AppCompatActivity {
 
         StringBuilder sb = new StringBuilder();
         for (CartItem item : ShopData.cart.getItems()) {
-            sb.append(String.format(Locale.US, "%d x %s\n", 
+            sb.append(String.format(Locale.US, "%d x %s\n",
                     item.getQuantity(), item.getProduct().getProductName()));
             sb.append(String.format(Locale.US, "   K%.2f\n", item.getSubtotal()));
         }
