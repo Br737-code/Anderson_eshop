@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.andersoneshop"
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
@@ -12,20 +13,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndersonEshop">
 
+        <!-- Splash Activity: The initial entry point. Must be exported. -->
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.App.Starting">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".ProductActivity" />
-        <activity android:name=".CategoryActivity" />
-        <activity android:name=".CartActivity" />
-        <activity android:name=".CheckoutActivity" />
-        <activity android:name=".ConfirmationActivity" />
+        <!-- MainActivity: Exported true to avoid IDE launch errors -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+
+        <activity android:name=".ProductActivity" android:exported="false" />
+        <activity android:name=".CategoryActivity" android:exported="false" />
+        <activity android:name=".CartActivity" android:exported="false" />
+        <activity android:name=".CheckoutActivity" android:exported="false" />
+        <activity android:name=".ConfirmationActivity" android:exported="false" />
 
     </application>
 
