@@ -87,6 +87,7 @@ To install and run the Anderson Eshop application on your development machine, f
 - Rebuild Project: Go to Build > Rebuild Project. This ensures all generated files and OOP class hierarchies are correctly compiled.
   
 **4. Running the Application**
+
 1.Prepare a Device:
 - Physical Device: Connect an Android phone via USB with USB Debugging enabled in Developer Options. (Minimum OS: Android 7.0 / API 24).
 - Emulator: Open the Device Manager in Android Studio and start a Virtual Device (AVD).
