@@ -72,6 +72,7 @@ The Anderson Eshop application effectively demonstrates core Object-Oriented Pro
 
 ##  Installation instructions 
 To install and run the Anderson Eshop application on your development machine, follow these steps:
+
 **1. Prerequisites**
 - Android Studio: Ensure you have the latest version of Android Studio (Hedgehog or newer recommended).
 - Java Development Kit (JDK): The project uses Java 8. Android Studio comes bundled with the necessary JDK.
