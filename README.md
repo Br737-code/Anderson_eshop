@@ -5,6 +5,8 @@
 2. Deborah RAIMBAS  ID no.25530143
 3. Valentino TOMON  ID no.25530376
 
+##  Project description
+
 Anderson Eshop is a professional, modern Android application designed for a grocery shopping experience. It features a fresh UI, robust product discovery, and a complete shopping flow from browsing to checkout.
 
 ##  Application Objectives
