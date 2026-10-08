@@ -71,6 +71,7 @@ Anderson Eshop is a professional, modern Android application designed for a groc
 4.  Click the **Run** button (green play icon) in the toolbar.
 
 ## Screenshots
+<img src="img0.jpg" alt="App Screenshot" width="200">  <img src="img2.jpg" alt="App Screenshot" width="200">  <img src="img3.jpg" alt="App Screenshot" width="200">  <img src="img4.jpg" alt="App Screenshot" width="200">  <img src="img5.jpg" alt="App Screenshot" width="200">  <img src="img6.jpg" alt="App Screenshot" width="200">  <img src="img7.jpg" alt="App Screenshot" width="200"> 
 
 ##  AI Assistance Declaration
 
